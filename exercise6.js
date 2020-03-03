@@ -22,7 +22,17 @@ function digitPerkalianMinimum(angka) {
         lenTempResult.push(tempResult[i].length - 1);
     }
 
-    return Math.min(...lenTempResult)
+    for(i = 0; i < lenTempResult.length; i++){
+        for(j = 0; j < lenTempResult.length; j++){
+            if(lenTempResult[j+1] < lenTempResult[j]){
+                var temp = lenTempResult[j+1];
+                lenTempResult[j+1] = lenTempResult[j];
+                lenTempResult[j] = temp;
+            }
+        }
+    }
+    return lenTempResult[0]
+    // return Math.min(...lenTempResult)
     
 }
 

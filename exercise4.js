@@ -1,26 +1,59 @@
-function cariModus(arr) {
-    var modus = [];
-    var uniform = false;
-
-    for(i = 0; i < arr.length; i++){
-        for(j = i+1; j < arr.length; j++){
-            if(arr[i] == arr[j]){
-                modus.push(arr[i]);
-                uniform = true;
-            }
-            else{
-                uniform = false;
-            }
+function cariModus(arr){
+    var uniform = true;
+    for(i = 1; i < arr.length; i++){
+        if(arr[i] != arr[0]){
+            uniform = false;
+            break;
         }
     }
+    if(uniform == true){
+        return -1
+    }
 
-    if(uniform == true || modus[0] == undefined){
-        return -1;
+    var temp = [];
+    for(i = 0; i < arr.length; i++){
+        var modusCandidate = false;
+        for(j = i+1; j < arr.length; j++){
+            if(arr[i] == arr[j]){
+                modusCandidate = true;
+                break;
+            }
+        }
+        for(k = 0; k < temp.length; k++){
+            if(arr[i] == temp[k]){
+                modusCandidate = false;
+            }
+        }
+
+        if(modusCandidate == true){
+            temp.push(arr[i])
+        }
+    }
+    
+
+    if(temp.length == 1){
+        return temp[0]
+    }
+    else if(temp.length == 0){
+        return -1
     }
     else{
-        return modus[0];
+        var modus = undefined;
+        var countModus = 0;
+        for(i = 0; i < temp.length; i++){
+            var countTemp = 0;
+            for(j = 0; j < arr.length; j++){
+                if(temp[i] == arr[j]){
+                    countTemp++;
+                }
+            }
+            if(countTemp > countModus){
+                countModus = countTemp;
+                modus = temp[i];
+            }
+        }
+        return modus;
     }
-
 }
 
 // TEST CASES

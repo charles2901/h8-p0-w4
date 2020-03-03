@@ -20,7 +20,7 @@ function highestScore (students) {
 console.log(highestScore([
 {
     name: 'Dimitri',
-    score: 100,
+    score: 90,
     class: 'foxes'
 },
 {
