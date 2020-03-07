@@ -1,10 +1,12 @@
 function angkaPrima(angka) {
+    var flag = true;
     for(i = 2; i < angka; i++){
         if(angka % i == 0){
-            return false;
+            flag = false;
+            break;
         }
     }
-    return true;
+    return flag;
 }
 
 // TEST CASES

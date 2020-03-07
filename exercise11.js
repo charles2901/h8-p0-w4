@@ -1,5 +1,4 @@
 function shoppingTime(memberId, money) {
-    var shoppingMoney = money;
 
     if(memberId == '' || memberId == undefined){
         return 'Mohon maaf, toko X hanya berlaku untuk member saja';
@@ -15,10 +14,10 @@ function shoppingTime(memberId, money) {
         'memberId': memberId,
         'money': money,
         'listPurchased': [],
-        'changeMoney': shoppingMoney,
+        'changeMoney': money,
     }
     for(i = 0; i < listItems.length; i++){
-        if(money >= listPrice[i]){
+        if(checkOut['changeMoney'] >= listPrice[i]){
             checkOut['changeMoney'] -= listPrice[i];
             checkOut['listPurchased'].push(listItems[i])
         }

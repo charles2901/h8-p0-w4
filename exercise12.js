@@ -1,4 +1,7 @@
 function countProfit(shoppers) {
+    if(shoppers.length == 0){
+        return [];
+    }
     var result = [];
     let listBarang = [ ['Sepatu Stacattu', 1500000, 10],
                        ['Baju Zoro', 500000, 2],

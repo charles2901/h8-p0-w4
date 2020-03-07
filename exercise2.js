@@ -1,5 +1,8 @@
 // dengan algoritma euclid
 function fpb(angka1,angka2) {
+  if(angka1 == 0 || angka2 == 0){
+    return "Input tidak valid"
+  }
   while(angka2 % angka1 !== 0){
     var temp = angka1;
     angka1 = angka2  % angka1;

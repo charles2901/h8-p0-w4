@@ -13,9 +13,17 @@ function naikAngkot(arrPenumpang) {
             tujuan: arrPenumpang[i][2],
             bayar: 0,
         }
-        var start = rute.indexOf(tempObj.naikDari);
-        var end = rute.indexOf(tempObj.tujuan);
-        tempObj.bayar = (end - start) * 2000;
+        for(j = 0; j < rute.length; j++){
+            if(rute[j] == arrPenumpang[i][1]){
+                var start = j;
+            }
+            else if(rute[j] == arrPenumpang[i][2]){
+                var end = j;
+            }
+        }
+        // var start = rute.indexOf(tempObj.naikDari);
+        // var end = rute.indexOf(tempObj.tujuan);
+        tempObj.bayar = Math.abs((end - start)) * 2000;
 
         result.push(tempObj)    
     }
